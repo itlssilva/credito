@@ -17,5 +17,7 @@ Exemplos para teste:
         "DataPrimeiraParcela":"11/12/2019"
     }
 
+Para executar teste com o Postman a api deve estar rodando - Projeto credito
+
 ## Utilizado tambem o projeto credito.console
 Teste em console
