@@ -4,7 +4,6 @@ C:\src\repos\teste-credito\credito\credito\bin\Debug\netcoreapp2.2\credito.runti
 C:\src\repos\teste-credito\credito\credito\bin\Debug\netcoreapp2.2\credito.dll
 C:\src\repos\teste-credito\credito\credito\bin\Debug\netcoreapp2.2\credito.pdb
 C:\src\repos\teste-credito\credito\credito\obj\Debug\netcoreapp2.2\credito.csprojAssemblyReference.cache
-C:\src\repos\teste-credito\credito\credito\obj\Debug\netcoreapp2.2\credito.csproj.CoreCompileInputs.cache
 C:\src\repos\teste-credito\credito\credito\obj\Debug\netcoreapp2.2\credito.RazorAssemblyInfo.cache
 C:\src\repos\teste-credito\credito\credito\obj\Debug\netcoreapp2.2\credito.RazorAssemblyInfo.cs
 C:\src\repos\teste-credito\credito\credito\obj\Debug\netcoreapp2.2\credito.AssemblyInfoInputs.cache
@@ -12,3 +11,6 @@ C:\src\repos\teste-credito\credito\credito\obj\Debug\netcoreapp2.2\credito.Assem
 C:\src\repos\teste-credito\credito\credito\obj\Debug\netcoreapp2.2\credito.RazorTargetAssemblyInfo.cache
 C:\src\repos\teste-credito\credito\credito\obj\Debug\netcoreapp2.2\credito.dll
 C:\src\repos\teste-credito\credito\credito\obj\Debug\netcoreapp2.2\credito.pdb
+C:\src\repos\teste-credito\credito\credito\bin\Debug\netcoreapp2.2\appsettings.Development.json
+C:\src\repos\teste-credito\credito\credito\bin\Debug\netcoreapp2.2\appsettings.json
+C:\src\repos\teste-credito\credito\credito\bin\Debug\netcoreapp2.2\Properties\launchSettings.json
