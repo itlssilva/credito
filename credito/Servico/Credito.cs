@@ -7,7 +7,7 @@ namespace credito.Servico
 {
     public class Credito
     {
-        public CreditoView ValidarCredito(decimal valorCredito, string tipoCredito, int qtdParcelas, DateTime dataPrimeiraParcela)
+        public CreditoView ValidarCredito(SolicitacaoCreditoView solicitacaoCredito)
         {
             var creditoView = new CreditoView();
             ICreditoValor verificarValorMaximo = new VerificarValorMaximo();
@@ -19,7 +19,10 @@ namespace credito.Servico
             verificarValorTipoCredito.Proximo = verificarQuantidadeParcelas;
             verificarQuantidadeParcelas.Proximo = verificarDataPrimeiraParcela;
 
-            var validacoes = verificarValorMaximo.Valor(valorCredito, tipoCredito, qtdParcelas, dataPrimeiraParcela);
+            var validacoes = verificarValorMaximo.Valor(solicitacaoCredito.ValorCredito,
+                                                        solicitacaoCredito.TipoCredito, 
+                                                        solicitacaoCredito.QtdParcelas, 
+                                                        solicitacaoCredito.DataPrimeiraParcela);
             if (!validacoes.Item3)
             {
                 creditoView.Aprovado = validacoes.Item3;
@@ -33,7 +36,10 @@ namespace credito.Servico
             IJuros calcularValores = new CalcularValorFinal();
             verificarJurosTipoCredito.Proximo = calcularValores;
 
-            var credito = verificarJurosTipoCredito.Valor(valorCredito, tipoCredito, qtdParcelas, 0);
+            var credito = verificarJurosTipoCredito.Valor(solicitacaoCredito.ValorCredito, 
+                                                          solicitacaoCredito.TipoCredito,
+                                                          solicitacaoCredito.QtdParcelas, 
+                                                          0);
 
             creditoView.Aprovado = credito.Aprovado;
             creditoView.StatusCrediro = credito.StatusCrediro;

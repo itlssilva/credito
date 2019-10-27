@@ -1,4 +1,5 @@
 using System;
+using credito.ViewModel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace credito.test
@@ -73,15 +74,17 @@ namespace credito.test
         [TestMethod] //Para o crédito de pessoa jurídica, o valor mínimo a ser liberado é de R$ 15.000,00
         public void EmprestimoPessoaJurica()
         {
-            var tipoCredito = "Pessoa Jurídica";
-            decimal valorEmprestimo = 15001M;
-            var qtdParcelas = 12;
-            var dataPrimeiraParcela = DateTime.Now.AddDays(16);
-            
-            var target = new credito.Servico.Credito();
-            var result = target.ValidarCredito(valorEmprestimo, tipoCredito, qtdParcelas, dataPrimeiraParcela);
+            var solicitacaoCredito = new SolicitacaoCreditoView(){
+                TipoCredito = "Pessoa Jurídica",
+                ValorCredito = 15001M,
+                QtdParcelas = 12,
+                DataPrimeiraParcela = DateTime.Now.AddDays(16)
+            };
 
-            var mensagemAprovado = $"Aprovado. Crédito liberado no valor de R$ {valorEmprestimo}";
+            var target = new credito.Servico.Credito();
+            var result = target.ValidarCredito(solicitacaoCredito);
+
+            var mensagemAprovado = $"Aprovado. Crédito liberado no valor de R$ {solicitacaoCredito.ValorCredito}";
 
             Assert.AreEqual(mensagemAprovado, result.StatusCrediro);
         }
@@ -89,13 +92,15 @@ namespace credito.test
         [TestMethod] //Para o crédito de pessoa jurídica, o valor mínimo a ser liberado é de R$ 15.000,00
         public void EmprestimoPessoaJuricaReprovadoValorMinimo()
         {
-            var tipoCredito = "Pessoa Jurídica";
-            decimal valorEmprestimo = 14000M;
-            var qtdParcelas = 12;
-            var dataPrimeiraParcela = DateTime.Now.AddDays(16);
-            
+            var solicitacaoCredito = new SolicitacaoCreditoView(){
+                TipoCredito = "Pessoa Jurídica",
+                ValorCredito = 14000M,
+                QtdParcelas = 12,
+                DataPrimeiraParcela = DateTime.Now.AddDays(16)
+            };
+
             var target = new credito.Servico.Credito();
-            var result = target.ValidarCredito(valorEmprestimo, tipoCredito, qtdParcelas, dataPrimeiraParcela);
+            var result = target.ValidarCredito(solicitacaoCredito);
 
             var mensagemAprovado = $"Recusado. Para o crédito de pessoa jurídica, o valor mínimo a ser liberado é de R$ 15.000,00";
 
@@ -105,15 +110,17 @@ namespace credito.test
         [TestMethod] //Para o crédito de pessoa jurídica, o valor mínimo a ser liberado é de R$ 15.000,00
         public void EmprestimoPessoaJuricaReprovadoValorMaximo()
         {
-            var tipoCredito = "Pessoa Jurídica";
-            decimal valorEmprestimo = 1000001M;
-            var qtdParcelas = 12;
-            var dataPrimeiraParcela = DateTime.Now.AddDays(16);
-            
-            var target = new credito.Servico.Credito();
-            var result = target.ValidarCredito(valorEmprestimo, tipoCredito, qtdParcelas, dataPrimeiraParcela);
+            var solicitacaoCredito = new SolicitacaoCreditoView(){
+                TipoCredito = "Pessoa Jurídica",
+                ValorCredito = 1000001M,
+                QtdParcelas = 12,
+                DataPrimeiraParcela = DateTime.Now.AddDays(16)
+            };
 
-            var mensagemAprovado = $"Reprovado. Valor superior a R$ 1.000.000,00. Valor solicitado R$ {valorEmprestimo}";
+            var target = new credito.Servico.Credito();
+            var result = target.ValidarCredito(solicitacaoCredito);
+
+            var mensagemAprovado = $"Reprovado. Valor superior a R$ 1.000.000,00. Valor solicitado R$ {solicitacaoCredito.ValorCredito}";
 
             Assert.AreEqual(mensagemAprovado, result.StatusCrediro);
         }
@@ -121,15 +128,17 @@ namespace credito.test
         [TestMethod]
         public void EmprestimoNaoPessoaJuricaAprovado()
         {
-            var tipoCredito = "Pessoa Física";
-            decimal valorEmprestimo = 14000M;
-            var qtdParcelas = 12;
-            var dataPrimeiraParcela = DateTime.Now.AddDays(16);
-            
-            var target = new credito.Servico.Credito();
-            var result = target.ValidarCredito(valorEmprestimo, tipoCredito, qtdParcelas, dataPrimeiraParcela);
+            var solicitacaoCredito = new SolicitacaoCreditoView(){
+                TipoCredito = "Pessoa Física",
+                ValorCredito = 14000.00M,
+                QtdParcelas = 12,
+                DataPrimeiraParcela = DateTime.Now.AddDays(16)
+            };
 
-            var mensagemAprovado = $"Aprovado. Crédito liberado no valor de R$ {valorEmprestimo}";
+            var target = new credito.Servico.Credito();
+            var result = target.ValidarCredito(solicitacaoCredito);
+
+            var mensagemAprovado = $"Aprovado. Crédito liberado no valor de R$ {solicitacaoCredito.ValorCredito}";
 
             Assert.AreEqual(mensagemAprovado, result.StatusCrediro);
         }
@@ -137,13 +146,15 @@ namespace credito.test
         [TestMethod]
         public void EmprestimoReprovadoPrimeiraParcelaDataMinima()
         {
-            var tipoCredito = "Pessoa Física";
-            decimal valorEmprestimo = 14000M;
-            var qtdParcelas = 12;
-            var dataPrimeiraParcela = DateTime.Now.AddDays(3);
+            var solicitacaoCredito = new SolicitacaoCreditoView(){
+                TipoCredito = "Pessoa Física",
+                ValorCredito = 14000.00M,
+                QtdParcelas = 12,
+                DataPrimeiraParcela = DateTime.Now.AddDays(3)
+            };
 
             var target = new credito.Servico.Credito();
-            var result = target.ValidarCredito(valorEmprestimo, tipoCredito, qtdParcelas, dataPrimeiraParcela);
+            var result = target.ValidarCredito(solicitacaoCredito);
 
             var mensagemReprovada = "A Data da primeira parcela não pode ser inferior a";
             
@@ -153,13 +164,15 @@ namespace credito.test
         [TestMethod]
         public void EmprestimoReprovadoPrimeiraParcelaDataMaxima()
         {
-            var tipoCredito = "Pessoa Física";
-            decimal valorEmprestimo = 14000M;
-            var qtdParcelas = 12;
-            var dataPrimeiraParcela = DateTime.Now.AddDays(45);
-
+            var solicitacaoCredito = new SolicitacaoCreditoView(){
+                TipoCredito = "Pessoa Física",
+                ValorCredito = 14000.00M,
+                QtdParcelas = 12,
+                DataPrimeiraParcela = DateTime.Now.AddDays(45)
+            };
+            
             var target = new credito.Servico.Credito();
-            var result = target.ValidarCredito(valorEmprestimo, tipoCredito, qtdParcelas, dataPrimeiraParcela);
+            var result = target.ValidarCredito(solicitacaoCredito);
 
             var mensagemReprovada = "A Data da primeira parcela não pode ser superior a";
             
@@ -170,17 +183,20 @@ namespace credito.test
         [TestInitialize]
         public void EmprestimoAprovado()
         {
-            var tipoCredito = "Pessoa Física";
-            decimal valorEmprestimo = 14000.00M;
-            var qtdParcelas = 12;
-            var dataPrimeiraParcela = DateTime.Now.AddDays(16);
+            var solicitacaoCredito = new SolicitacaoCreditoView(){
+                TipoCredito = "Pessoa Física",
+                ValorCredito = 14000.00M,
+                QtdParcelas = 12,
+                DataPrimeiraParcela = DateTime.Now.AddDays(16)
+            };
+
             decimal valorFinal = 19960.65M;
             decimal valorJuros = 5960.65M;
             
             var target = new credito.Servico.Credito();
-            var result = target.ValidarCredito(valorEmprestimo, tipoCredito, qtdParcelas, dataPrimeiraParcela);
+            var result = target.ValidarCredito(solicitacaoCredito);
 
-            var mensagemAprovado = $"Aprovado. Crédito liberado no valor de R$ {valorEmprestimo}";
+            var mensagemAprovado = $"Aprovado. Crédito liberado no valor de R$ {solicitacaoCredito.ValorCredito}";
 
             Console.WriteLine(result.ValorTotalComJuros);
             Console.WriteLine(result.ValorDosJuros);
