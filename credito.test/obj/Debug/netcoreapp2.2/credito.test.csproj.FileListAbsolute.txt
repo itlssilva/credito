@@ -1,0 +1,17 @@
+C:\src\repos\teste-credito\credito\credito.test\obj\Debug\netcoreapp2.2\credito.test.csprojAssemblyReference.cache
+C:\src\repos\teste-credito\credito\credito.test\obj\Debug\netcoreapp2.2\credito.test.csproj.CoreCompileInputs.cache
+C:\src\repos\teste-credito\credito\credito.test\obj\Debug\netcoreapp2.2\credito.test.AssemblyInfoInputs.cache
+C:\src\repos\teste-credito\credito\credito.test\obj\Debug\netcoreapp2.2\credito.test.AssemblyInfo.cs
+C:\src\repos\teste-credito\credito\credito.test\bin\Debug\netcoreapp2.2\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\src\repos\teste-credito\credito\credito.test\bin\Debug\netcoreapp2.2\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\src\repos\teste-credito\credito\credito.test\bin\Debug\netcoreapp2.2\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\src\repos\teste-credito\credito\credito.test\bin\Debug\netcoreapp2.2\credito.test.deps.json
+C:\src\repos\teste-credito\credito\credito.test\bin\Debug\netcoreapp2.2\credito.test.runtimeconfig.json
+C:\src\repos\teste-credito\credito\credito.test\bin\Debug\netcoreapp2.2\credito.test.runtimeconfig.dev.json
+C:\src\repos\teste-credito\credito\credito.test\bin\Debug\netcoreapp2.2\credito.test.dll
+C:\src\repos\teste-credito\credito\credito.test\bin\Debug\netcoreapp2.2\credito.test.pdb
+C:\src\repos\teste-credito\credito\credito.test\obj\Debug\netcoreapp2.2\credito.test.dll
+C:\src\repos\teste-credito\credito\credito.test\obj\Debug\netcoreapp2.2\credito.test.pdb
+C:\src\repos\teste-credito\credito\credito.test\bin\Debug\netcoreapp2.2\credito.dll
+C:\src\repos\teste-credito\credito\credito.test\bin\Debug\netcoreapp2.2\credito.pdb
+C:\src\repos\teste-credito\credito\credito.test\obj\Debug\netcoreapp2.2\credito.test.csproj.CopyComplete
